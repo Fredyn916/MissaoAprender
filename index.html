@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Missão Aprender — Transformando desempenho escolar em oportunidade econômica. Solução inovadora alinhada à ODS 4 da ONU para redução da evasão escolar.">
+  <meta name="keywords"
+    content="evasão escolar, ODS 4, educação de qualidade, Missão Aprender, bolsa estudantil, inclusão educacional">
+  <meta name="author" content="Missão Aprender">
+  <title>Missão Aprender — Transformando Educação em Oportunidade</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --g-orange: #F26522;
+      --g-red: #E31B23;
+      --g-pink: #E91E8C;
+      --g-purple: #7B2D8B;
+      --g-blue: #003F8A;
+      --g-cyan: #009FE3;
+      --g-green: #00A651;
+      --g-yellow: #FFD700;
+      --g-dark: #1A1A2E;
+      --g-light: #F8F9FC;
+      --g-white: #FFFFFF;
+      --g-gray: #E8EBF0;
+      --g-text: #1C1C2E;
+      --g-muted: #5A6278;
+
+      --grad-primary: linear-gradient(135deg, var(--g-orange) 0%, var(--g-red) 40%, var(--g-pink) 100%);
+      --grad-cool: linear-gradient(135deg, var(--g-blue) 0%, var(--g-cyan) 60%, var(--g-green) 100%);
+      --grad-warm: linear-gradient(135deg, var(--g-yellow) 0%, var(--g-orange) 50%, var(--g-red) 100%);
+      --grad-full: linear-gradient(135deg, var(--g-blue) 0%, var(--g-purple) 30%, var(--g-pink) 60%, var(--g-orange) 100%);
+
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.10);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.14);
+      --radius: 16px;
+      --radius-lg: 24px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--g-light);
+      color: var(--g-text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Sora', sans-serif;
+      line-height: 1.2;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      transition: box-shadow .3s;
+    }
+
+    nav.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 68px;
+    }
+
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      color: var(--g-muted);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--g-orange);
+    }
+
+    .nav-cta {
+      background: var(--grad-primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: .55rem 1.4rem;
+      border-radius: 50px;
+      font-size: .875rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity .2s, transform .2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--g-text);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 6rem;
+      background: var(--g-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .12;
+      filter: blur(80px);
+    }
+
+    .hero-blob-1 {
+      width: 700px;
+      height: 700px;
+      top: -200px;
+      right: -200px;
+      background: var(--grad-primary);
+    }
+
+    .hero-blob-2 {
+      width: 500px;
+      height: 500px;
+      bottom: -100px;
+      left: -150px;
+      background: var(--grad-cool);
+    }
+
+    .hero-blob-3 {
+      width: 300px;
+      height: 300px;
+      top: 40%;
+      left: 35%;
+      background: var(--g-yellow);
+      opacity: .08;
+    }
+
+    .hero-grid-line {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 63, 138, .04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 63, 138, .04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(242, 101, 34, .1);
+      color: var(--g-orange);
+      padding: .4rem 1rem;
+      border-radius: 50px;
+      font-size: .8rem;
+      font-weight: 600;
+      border: 1px solid rgba(242, 101, 34, .2);
+      margin-bottom: 1.5rem;
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--g-orange);
+      animation: pulse 2s infinite;
+    }
+
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+      animation: fadeUp .8s .1s ease both;
+    }
+
+    .hero-title span {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--g-muted);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      animation: fadeUp .8s .2s ease both;
+    }
+
+    .hero-stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--g-light);
+      border: 1px solid var(--g-gray);
+      padding: .7rem 1.2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      animation: fadeUp .8s .3s ease both;
+    }
+
+    .hero-stat-pill .num {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--g-red);
+    }
+
+    .hero-stat-pill .label {
+      font-size: .82rem;
+      color: var(--g-muted);
+      line-height: 1.3;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .4s ease both;
+    }
+
+    .btn-primary {
+      background: var(--grad-primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: .9rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 24px rgba(227, 27, 35, .3);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(227, 27, 35, .4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--g-blue);
+      border: 2px solid var(--g-blue);
+      cursor: pointer;
+      padding: .9rem 2rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      transition: background .2s, color .2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .btn-outline:hover {
+      background: var(--g-blue);
+      color: #fff;
+    }
+
+    .hero-visual {
+      animation: fadeIn 1s .5s ease both;
+      position: relative;
+    }
+
+    .hero-card-stack {
+      position: relative;
+    }
+
+    .stat-card {
+      background: var(--g-white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--g-gray);
+    }
+
+    .stat-card-main {
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #fff 60%, rgba(242, 101, 34, .05));
+    }
+
+    .stat-card-main .big-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1;
+      background: var(--grad-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-card-main p {
+      color: var(--g-muted);
+      font-size: .9rem;
+      margin-top: .5rem;
+    }
+
+    .stat-cards-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card-mini .value {
+      font-family: 'Sora', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: var(--grad-cool);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-card-mini p {
+      font-size: .8rem;
+      color: var(--g-muted);
+      margin-top: .2rem;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--g-white);
+      border-radius: 12px;
+      padding: .7rem 1rem;
+      box-shadow: var(--shadow-md);
+      font-size: .8rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-badge.top {
+      top: -20px;
+      right: 20px;
+      color: var(--g-green);
+    }
+
+    .floating-badge.bot {
+      bottom: -35px;
+      left: 10px;
+      color: var(--g-blue);
+    }
+
+    .floating-badge .icon {
+      font-size: 1rem;
+    }
+
+    /* ─── SECTION BASE ───────────────────────────────────────────────── */
+    section {
+      padding: 6rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 2px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--g-muted);
+      max-width: 560px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    /* color variants */
+    .label-orange {
+      color: var(--g-orange);
+    }
+
+    .label-orange::before {
+      background: var(--g-orange);
+    }
+
+    .label-blue {
+      color: var(--g-blue);
+    }
+
+    .label-blue::before {
+      background: var(--g-blue);
+    }
+
+    .label-green {
+      color: var(--g-green);
+    }
+
+    .label-green::before {
+      background: var(--g-green);
+    }
+
+    .label-purple {
+      color: var(--g-purple);
+    }
+
+    .label-purple::before {
+      background: var(--g-purple);
+    }
+
+    .label-red {
+      color: var(--g-red);
+    }
+
+    .label-red::before {
+      background: var(--g-red);
+    }
+
+    .label-cyan {
+      color: var(--g-cyan);
+    }
+
+    .label-cyan::before {
+      background: var(--g-cyan);
+    }
+
+    /* ─── PROBLEMA ───────────────────────────────────────────────────── */
+    #problema {
+      background: var(--g-white);
+    }
+
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .big-stat {
+      position: relative;
+      padding: 3rem;
+      background: linear-gradient(135deg, var(--g-red), var(--g-pink));
+      border-radius: var(--radius-lg);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .big-stat::after {
+      content: '42%';
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      font-family: 'Sora', sans-serif;
+      font-size: 9rem;
+      font-weight: 800;
+      opacity: .1;
+      line-height: 1;
+    }
+
+    .big-stat .pct {
+      font-family: 'Sora', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .big-stat p {
+      opacity: .9;
+      margin-top: .5rem;
+      font-size: 1rem;
+    }
+
+    .big-stat .source {
+      opacity: .6;
+      font-size: .8rem;
+      margin-top: 1rem;
+    }
+
+    .compare-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .compare-block {
+      background: var(--g-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border-left: 4px solid;
+      position: relative;
+    }
+
+    .compare-block.edu {
+      border-color: var(--g-blue);
+    }
+
+    .compare-block.work {
+      border-color: var(--g-orange);
+    }
+
+    .compare-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .compare-block.edu h4 {
+      color: var(--g-blue);
+    }
+
+    .compare-block.work h4 {
+      color: var(--g-orange);
+    }
+
+    .compare-block p {
+      font-size: .9rem;
+      color: var(--g-muted);
+    }
+
+    .vs-badge {
+      align-self: center;
+      background: var(--g-white);
+      border: 2px solid var(--g-gray);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--g-muted);
+    }
+
+    /* ─── ODS 4 ──────────────────────────────────────────────────────── */
+    #ods4 {
+      background: var(--g-light);
+    }
+
+    .ods-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .ods-badge-box {
+      background: linear-gradient(135deg, var(--g-blue), var(--g-purple));
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .ods-number {
+      font-family: 'Sora', sans-serif;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+      opacity: .3;
+    }
+
+    .ods-badge-box h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .ods-badge-box p {
+      opacity: .85;
+      line-height: 1.7;
+    }
+
+    .ods-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .pillar {
+      background: var(--g-white);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--g-gray);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .pillar:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .pillar-icon.inc {
+      background: rgba(0, 166, 81, .12);
+    }
+
+    .pillar-icon.eq {
+      background: rgba(0, 159, 227, .12);
+    }
+
+    .pillar-icon.perm {
+      background: rgba(242, 101, 34, .12);
+    }
+
+    .pillar h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .2rem;
+    }
+
+    .pillar p {
+      font-size: .85rem;
+      color: var(--g-muted);
+    }
+
+    /* ─── SOLUÇÃO ────────────────────────────────────────────────────── */
+    #solucao {
+      background: var(--g-white);
+    }
+
+    .steps-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--g-orange), var(--g-pink), var(--g-blue), var(--g-green));
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .step:last-child {
+      padding-bottom: 0;
+    }
+
+    .step-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+    }
+
+    .step-dot-1 {
+      background: linear-gradient(135deg, var(--g-orange), var(--g-red));
+    }
+
+    .step-dot-2 {
+      background: linear-gradient(135deg, var(--g-red), var(--g-pink));
+    }
+
+    .step-dot-3 {
+      background: linear-gradient(135deg, var(--g-pink), var(--g-purple));
+    }
+
+    .step-dot-4 {
+      background: linear-gradient(135deg, var(--g-purple), var(--g-blue));
+    }
+
+    .step-content {
+      background: var(--g-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--g-gray);
+      transition: box-shadow .2s;
+    }
+
+    .step-content:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .step-num {
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--g-muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+
+    .step-content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+
+    .step-content p {
+      font-size: .9rem;
+      color: var(--g-muted);
+    }
+
+    /* ─── CIÊNCIA ────────────────────────────────────────────────────── */
+    #ciencia {
+      background: var(--g-light);
+    }
+
+    .science-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .science-text p {
+      color: var(--g-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .motivation-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mbar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .85rem;
+      font-weight: 600;
+      margin-bottom: .4rem;
+    }
+
+    .mbar-track {
+      background: var(--g-gray);
+      border-radius: 50px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .mbar-fill {
+      height: 100%;
+      border-radius: 50px;
+      transition: width 1.2s ease;
+    }
+
+    .mbar-ext {
+      background: linear-gradient(90deg, var(--g-orange), var(--g-red));
+    }
+
+    .mbar-int {
+      background: linear-gradient(90deg, var(--g-blue), var(--g-cyan));
+    }
+
+    .mbar-prog {
+      background: linear-gradient(90deg, var(--g-purple), var(--g-pink));
+    }
+
+    .science-insight {
+      background: linear-gradient(135deg, var(--g-blue), var(--g-purple));
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      color: #fff;
+      margin-top: 1.5rem;
+    }
+
+    .science-insight h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .4rem;
+    }
+
+    .science-insight p {
+      font-size: .85rem;
+      opacity: .85;
+      color: #fff
+    }
+
+    /* ─── FINANCEIRO ─────────────────────────────────────────────────── */
+    #financeiro {
+      background: var(--g-white);
+    }
+
+    .fin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .fin-partners {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .partner-card {
+      background: var(--g-light);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      border: 1px solid var(--g-gray);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform .2s;
+    }
+
+    .partner-card:hover {
+      transform: translateX(4px);
+    }
+
+    .partner-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .pi-gov {
+      background: rgba(0, 63, 138, .1);
+    }
+
+    .pi-emp {
+      background: rgba(242, 101, 34, .1);
+    }
+
+    .pi-ben {
+      background: rgba(0, 166, 81, .1);
+    }
+
+    .partner-card h4 {
+      font-size: .95rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+    }
+
+    .partner-card p {
+      font-size: .85rem;
+      color: var(--g-muted);
+    }
+
+    .cost-comparison {
+      background: var(--g-light);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--g-gray);
+    }
+
+    .cost-comparison h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .cost-bar-wrap {
+      margin-bottom: 1.5rem;
+    }
+
+    .cost-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: .85rem;
+      margin-bottom: .5rem;
+    }
+
+    .cost-bar-label span:first-child {
+      font-weight: 600;
+    }
+
+    .cost-bar-label .val {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+    }
+
+    .val-cost {
+      color: var(--g-orange);
+    }
+
+    .val-benefit {
+      color: var(--g-green);
+    }
+
+    .cost-track {
+      background: var(--g-gray);
+      border-radius: 50px;
+      height: 16px;
+      overflow: hidden;
+    }
+
+    .cost-fill-cost {
+      width: 30%;
+      background: linear-gradient(90deg, var(--g-orange), var(--g-red));
+      height: 100%;
+      border-radius: 50px;
+    }
+
+    .cost-fill-ben {
+      width: 100%;
+      background: linear-gradient(90deg, var(--g-green), var(--g-cyan));
+      height: 100%;
+      border-radius: 50px;
+    }
+
+    .roi-highlight {
+      background: linear-gradient(135deg, var(--g-green), var(--g-cyan));
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    .roi-highlight .roi-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .roi-highlight p {
+      font-size: .85rem;
+      opacity: .9;
+      margin-top: .2rem;
+    }
+
+    /* ─── NÍVEIS ─────────────────────────────────────────────────────── */
+    #niveis {
+      background: var(--g-light);
+    }
+
+    .niveis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+
+    .nivel-card {
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: .6rem;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: transform .2s, box-shadow .2s;
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: #fff;
+    }
+
+    .nivel-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .nivel-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .12;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .n1 {
+      background: linear-gradient(135deg, #4A90D9, #5BA3E8);
+    }
+
+    .n2 {
+      background: linear-gradient(135deg, var(--g-cyan), #00C4F4);
+    }
+
+    .n3 {
+      background: linear-gradient(135deg, var(--g-green), #00C465);
+    }
+
+    .n4 {
+      background: linear-gradient(135deg, var(--g-yellow), #FFA500);
+    }
+
+    .n5 {
+      background: linear-gradient(135deg, var(--g-orange), var(--g-red));
+    }
+
+    .n6 {
+      background: linear-gradient(135deg, var(--g-red), var(--g-pink));
+    }
+
+    .n7 {
+      background: linear-gradient(135deg, var(--g-purple), #5B1E8A);
+    }
+
+    .nivel-num {
+      font-family: 'Sora', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      opacity: .7;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nivel-icon {
+      font-size: 2rem;
+    }
+
+    .nivel-name {
+      font-family: 'Sora', sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .nivel-desc {
+      font-size: .75rem;
+      opacity: .85;
+      line-height: 1.4;
+    }
+
+    .nivel-benefit {
+      background: rgba(0, 0, 0, .2);
+      border-radius: 50px;
+      padding: .25rem .7rem;
+      font-size: .75rem;
+      font-weight: 600;
+      margin-top: .2rem;
+    }
+
+    /* ─── IMPACTO ────────────────────────────────────────────────────── */
+    #impacto {
+      background: var(--g-white);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .impact-card {
+      background: var(--g-white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      border: 1px solid var(--g-gray);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .impact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .impact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .impact-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+
+    .impact-label {
+      font-size: .85rem;
+      color: var(--g-muted);
+      font-weight: 500;
+    }
+
+    .i1 .impact-num {
+      background: var(--grad-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .i2 .impact-num {
+      background: var(--grad-cool);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .i3 .impact-num {
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .i4 .impact-num {
+      background: linear-gradient(135deg, var(--g-green), var(--g-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── CTA FINAL ──────────────────────────────────────────────────── */
+    #cta {
+      background: var(--g-dark);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta .cta-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 20% 50%, rgba(242, 101, 34, .15), transparent 60%),
+        radial-gradient(ellipse at 80% 50%, rgba(0, 63, 138, .2), transparent 60%);
+    }
+
+    .cta-inner {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-kicker {
+      color: var(--g-orange);
+      font-size: .85rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-title em {
+      font-style: normal;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cta-desc {
+      color: rgba(255, 255, 255, .65);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-cta-main {
+      background: var(--grad-primary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 1rem 2.4rem;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 12px 32px rgba(227, 27, 35, .4);
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      text-decoration: none;
+    }
+
+    .btn-cta-main:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(227, 27, 35, .5);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────────── */
+    footer {
+      background: #0D0D1A;
+      color: rgba(255, 255, 255, .5);
+      padding: 3rem 2rem;
+      font-size: .875rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      background: var(--grad-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-ods {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .ods-badge-footer {
+      background: linear-gradient(135deg, var(--g-blue), var(--g-purple));
+      color: #fff;
+      padding: .3rem .7rem;
+      border-radius: 6px;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, .4);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .8);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .6;
+        transform: scale(.8);
+      }
+    }
+
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: .1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: .2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: .3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: .4s;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+
+      .hero-content,
+      .problema-grid,
+      .ods-layout,
+      .science-grid,
+      .fin-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-title {
+        font-size: 2.4rem;
+      }
+
+      .steps-timeline::before {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        box-shadow: var(--shadow-md);
+        border-top: 1px solid var(--g-gray);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .niveis-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .niveis-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-cards-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo"><img src="./LogoMissaoAprender.png" alt="logo" style="width: 50px;"></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problema">O Problema</a></li>
+        <li><a href="#ods4">ODS 4</a></li>
+        <li><a href="#solucao">Solução</a></li>
+        <li><a href="#financeiro">Financeiro</a></li>
+        <li><a href="#niveis">Níveis</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+      </ul>
+      <!-- <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Implementar</button> -->
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+      <div class="hero-grid-line"></div>
+    </div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Alinhado à ODS 4 · ONU
+        </div>
+        <h1 class="hero-title">
+          Missão<br><span>Aprender</span>
+        </h1>
+        <p class="hero-subtitle">Transformando desempenho escolar em oportunidade econômica</p>
+        <div class="hero-stat-pill">
+          <span class="num">42%</span>
+          <span class="label">dos jovens brasileiros<br>abandonam a escola para trabalhar</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#solucao" class="btn-primary">
+            Conheça a Solução ↓
+          </a>
+          <a href="#ods4" class="btn-outline">
+            Ver Dados
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-stack">
+          <div class="floating-badge top">
+            <span class="icon">📈</span> +68% permanência escolar
+          </div>
+          <div class="stat-card stat-card-main">
+            <div class="big-num">42%</div>
+            <p>jovens deixam a escola por necessidade financeira</p>
+            <p style="margin-top:.5rem;font-size:.75rem;color:var(--g-muted)">Fonte: PNAD / IBGE</p>
+          </div>
+          <div class="stat-cards-row">
+            <div class="stat-card stat-card-mini">
+              <div class="value">R$70</div>
+              <p>custo máximo por aluno/mês</p>
+            </div>
+            <div class="stat-card stat-card-mini">
+              <div class="value">7</div>
+              <p>níveis de progressão</p>
+            </div>
+          </div>
+          <div class="floating-badge bot">
+            <span class="icon">🏫</span> Parceria Público-Privada
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section id="problema">
+    <div class="section-inner">
+      <div class="problema-grid">
+        <div class="reveal">
+          <span class="section-label label-red">O Problema</span>
+          <h2 class="section-title">Por que jovens abandonam a escola?</h2>
+          <p class="section-desc">A evasão escolar no Brasil tem uma causa predominante: a necessidade financeira
+            imediata supera a percepção de valor de longo prazo da educação.</p>
+          <div class="compare-blocks" style="margin-top:2rem">
+            <div class="compare-block edu">
+              <h4>📚 Educação como investimento</h4>
+              <p>Promessa de melhores salários e oportunidades no futuro — benefícios intangíveis e distantes para
+                jovens em situação de vulnerabilidade.</p>
+            </div>
+            <div style="display:flex;justify-content:center;margin:.5rem 0">
+              <div class="vs-badge">VS</div>
+            </div>
+            <div class="compare-block work">
+              <h4>💼 Trabalho como urgência</h4>
+              <p>Renda imediata para complementar o orçamento familiar — necessidade real e concreta que compete
+                diretamente com a permanência na escola.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="big-stat">
+            <div class="pct">42%</div>
+            <p>dos jovens de 15 a 24 anos deixam a escola para trabalhar ou por necessidade financeira</p>
+            <p class="source">Pesquisa Nacional por Amostra de Domicílios — PNAD/IBGE</p>
+          </div>
+          <div
+            style="margin-top:1.5rem;padding:1.5rem;background:var(--g-light);border-radius:var(--radius);border:1px solid var(--g-gray)">
+            <p style="font-size:.9rem;color:var(--g-muted);line-height:1.7">A evasão não é falta de interesse. É uma
+              <strong style="color:var(--g-text)">decisão racional</strong> diante de recursos escassos. O Missão
+              Aprender reequilibra essa equação — tornando a permanência escolar <strong
+                style="color:var(--g-orange)">economicamente viável</strong> agora.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ODS 4 -->
+  <section id="ods4">
+    <div class="section-inner">
+      <div class="ods-layout">
+        <div class="reveal">
+          <div class="ods-badge-box">
+            <div>
+              <div class="ods-number">04</div>
+              <h3>Educação de Qualidade</h3>
+            </div>
+            <p>Garantir educação inclusiva, equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo
+              da vida para todos.</p>
+            <div style="background:rgba(255,255,255,.15);border-radius:12px;padding:1rem">
+              <p style="font-size:.85rem;opacity:.9">O Missão Aprender é uma resposta direta à meta 4.1 da ODS 4:
+                garantir que todos os jovens completem o ensino médio.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <span class="section-label label-blue">Alinhamento com a ONU</span>
+          <h2 class="section-title">Três pilares fundamentais</h2>
+          <p class="section-desc" style="margin-bottom:1.5rem">O projeto atua nos três eixos centrais da ODS 4, com
+            impacto mensurável e escalável.</p>
+          <div class="ods-pillars">
+            <div class="pillar">
+              <div class="pillar-icon inc">🌍</div>
+              <div>
+                <h4>Inclusão</h4>
+                <p>Garante que jovens em vulnerabilidade socioeconômica tenham condições reais de permanecer no sistema
+                  educacional.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon eq">⚖️</div>
+              <div>
+                <h4>Equidade</h4>
+                <p>Reconhece as diferentes necessidades dos estudantes e recompensa esforço e evolução — não apenas
+                  desempenho absoluto.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="pillar-icon perm">🎯</div>
+              <div>
+                <h4>Permanência com Aprendizagem</h4>
+                <p>Não basta manter o aluno na escola: o sistema exige frequência, engajamento e evolução acadêmica
+                  contínua.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section id="solucao">
+    <div class="section-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" class="two-col-layout">
+        <div class="reveal">
+          <span class="section-label label-orange">Como Funciona</span>
+          <h2 class="section-title">A Solução em 4 etapas</h2>
+          <p class="section-desc">O Missão Aprender estrutura a jornada do estudante em etapas claras, com incentivos
+            progressivos e verificação rigorosa.</p>
+        </div>
+        <div></div>
+      </div>
+      <div class="steps-timeline" style="margin-top:3rem">
+        <div class="step reveal">
+          <div class="step-dot step-dot-1">🎯</div>
+          <div class="step-content">
+            <div class="step-num">Etapa 01</div>
+            <h3>Metas Claras e Verificáveis</h3>
+            <p>Cada aluno tem metas individuais de frequência, desempenho médio por disciplina e evolução trimestral. As
+              metas são personalizadas por capacidade, nível e histórico escolar.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-1">
+          <div class="step-dot step-dot-2">🔐</div>
+          <div class="step-content">
+            <div class="step-num">Etapa 02</div>
+            <h3>Avaliações e Antifraude Digital</h3>
+            <p>Avaliações presenciais mensais combinadas com sistema digital de geolocalização garantem a integridade do
+              processo. Dados cruzados com a secretaria de educação.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-2">
+          <div class="step-dot step-dot-3">📊</div>
+          <div class="step-content">
+            <div class="step-num">Etapa 03</div>
+            <h3>Progressão em 7 Níveis</h3>
+            <p>Sistema gamificado de progressão — sem excessos visuais — onde cada nível representa um marco acadêmico
+              real. A progressão é contínua e baseada em dados objetivos.</p>
+          </div>
+        </div>
+        <div class="step reveal reveal-delay-3">
+          <div class="step-dot step-dot-4">🏆</div>
+          <div class="step-content">
+            <div class="step-num">Etapa 04</div>
+            <h3>Recompensas Escalonadas</h3>
+            <p>Benefícios mensais crescem conforme o nível: capital, descontos em transporte, alimentação, internet,
+              cultura e tecnologia. Do Nível 1 (R$30 em benefícios) ao Nível 7 (R$300+ em benefícios percebidos).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIÊNCIA -->
+  <section id="ciencia">
+    <div class="section-inner">
+      <div class="science-grid">
+        <div class="science-text reveal">
+          <span class="section-label label-purple">Base Científica</span>
+          <h2 class="section-title">Psicologia Comportamental Aplicada</h2>
+          <p>A Teoria da Autodeterminação (Deci & Ryan, 1985) demonstra que recompensas externas bem estruturadas podem
+            ser a ponte entre a necessidade imediata e a motivação intrínseca.</p>
+          <p>O Missão Aprender usa reforço positivo progressivo — a recompensa não substitui o aprendizado, ela remove a
+            barreira financeira que impede o estudante de chegar lá.</p>
+          <p>Estudos em economias comportamentais mostram que programas de transferência condicionada com foco em
+            desempenho reduzem evasão em até <strong style="color:var(--g-green)">47%</strong> em populações
+            vulneráveis.</p>
+          <div class="science-insight">
+            <h4>💡 Recompensa como Ponte</h4>
+            <p>A recompensa não é o destino — é o que viabiliza a jornada. Com a necessidade imediata atendida, o
+              estudante pode dedicar energia ao que realmente importa: aprender.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2" style="padding-top:4.5rem">
+          <h3 style="font-size:1.05rem;font-weight:700;margin-bottom:1.5rem">Fatores de Motivação Impactados</h3>
+          <div class="motivation-bars">
+            <div>
+              <div class="mbar-label"><span>Motivação Extrínseca</span><span
+                  style="color:var(--g-orange);font-weight:700">Alta Ativação</span></div>
+              <div class="mbar-track">
+                <div class="mbar-fill mbar-ext" data-w="90%" style="width:0"></div>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <div class="mbar-label"><span>Desenvolvimento Intrínseco</span><span
+                  style="color:var(--g-blue);font-weight:700">Progressivo</span></div>
+              <div class="mbar-track">
+                <div class="mbar-fill mbar-int" data-w="70%" style="width:0"></div>
+              </div>
+            </div>
+            <div style="margin-top:1.2rem">
+              <div class="mbar-label"><span>Senso de Progressão</span><span
+                  style="color:var(--g-purple);font-weight:700">Potencializado</span></div>
+              <div class="mbar-track">
+                <div class="mbar-fill mbar-prog" data-w="85%" style="width:0"></div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="margin-top:2rem;background:var(--g-white);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--g-gray)">
+            <h4 style="font-size:.9rem;font-weight:700;margin-bottom:.6rem">Referências científicas</h4>
+            <p style="font-size:.8rem;color:var(--g-muted);line-height:1.6">
+              Deci, E.L. & Ryan, R.M. (1985) · Bolsa Família Impact Studies (IPEA, 2020) · Conditional Cash Transfers —
+              World Bank (2022) · Behavioral Economics in Education — J-PAL (2023)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCEIRO -->
+  <section id="financeiro">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label label-green">Modelo Financeiro</span>
+        <h2 class="section-title">Parceria Público-Privada Sustentável</h2>
+        <p class="section-desc" style="margin-bottom:3rem">Um modelo inteligente onde governo, empresas e alunos ganham
+          — com incentivos fiscais e impacto social mensurável.</p>
+      </div>
+      <div class="fin-grid">
+        <div class="fin-partners reveal">
+          <div class="partner-card">
+            <div class="partner-icon pi-gov">🏛️</div>
+            <div>
+              <h4>Governo</h4>
+              <p>Fornece a estrutura escolar, valida as avaliações e integra o programa às secretarias de educação. Pode
+                financiar via fundo de desenvolvimento social.</p>
+            </div>
+          </div>
+          <div class="partner-card">
+            <div class="partner-icon pi-emp">🏢</div>
+            <div>
+              <h4>Empresas Parceiras</h4>
+              <p>Oferecem benefícios subsidiados (transporte, alimentação, cultura, tech) e obtêm acesso a talento jovem
+                qualificado + benefícios de responsabilidade social (ESG).</p>
+            </div>
+          </div>
+          <div class="partner-card">
+            <div class="partner-icon pi-ben">💚</div>
+            <div>
+              <h4>Incentivos Fiscais</h4>
+              <p>Empresas parceiras podem deduzir parte do investimento via Lei de Incentivo à Educação. Governo reduz
+                custos sociais de longo prazo da evasão.</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <div class="cost-comparison">
+            <h3>Custo Real × Benefício Percebido</h3>
+            <div class="cost-bar-wrap">
+              <div class="cost-bar-label">
+                <span>Custo por aluno/mês</span>
+                <span class="val val-cost">R$40–R$70</span>
+              </div>
+              <div class="cost-track">
+                <div class="cost-fill-cost"></div>
+              </div>
+            </div>
+            <div class="cost-bar-wrap">
+              <div class="cost-bar-label">
+                <span>Benefício percebido pelo aluno</span>
+                <span class="val val-benefit">R$100–R$300</span>
+              </div>
+              <div class="cost-track">
+                <div class="cost-fill-ben"></div>
+              </div>
+            </div>
+            <div class="roi-highlight">
+              <div class="roi-num">&approx; 4.30×</div>
+              <p>retorno percebido sobre o investimento</p>
+            </div>
+          </div>
+          <div
+            style="margin-top:1.5rem;background:var(--g-light);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--g-gray)">
+            <h4 style="font-size:.9rem;font-weight:700;margin-bottom:.5rem">Por que funciona financeiramente?</h4>
+            <p style="font-size:.85rem;color:var(--g-muted);line-height:1.7">Empresas fornecem benefícios a custo de
+              atacado. O aluno percebe o valor de varejo. Essa <strong style="color:var(--g-green)">diferença de
+                valor</strong> é o motor do modelo — sustentável sem demandar transferência direta de dinheiro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÍVEIS -->
+  <section id="niveis">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label label-cyan">Progressão</span>
+        <h2 class="section-title">Os 7 Níveis do Missão Aprender</h2>
+        <p class="section-desc">Cada nível representa um marco acadêmico real, com benefícios crescentes que reconhecem
+          o esforço e a evolução do estudante.</p>
+      </div>
+      <div class="niveis-grid">
+        <div class="nivel-card n1 reveal reveal-delay-1">
+          <div class="nivel-num">Nível 1</div>
+          <div class="nivel-icon">🌱</div>
+          <div class="nivel-name">Iniciante</div>
+          <div class="nivel-desc">Frequência básica atingida. Primeiros passos na jornada.</div>
+          <div class="nivel-benefit">R$30–R$50</div>
+        </div>
+        <div class="nivel-card n2 reveal reveal-delay-1">
+          <div class="nivel-num">Nível 2</div>
+          <div class="nivel-icon">⚡</div>
+          <div class="nivel-name">Ativo</div>
+          <div class="nivel-desc">Regularidade comprovada. Desempenho em crescimento.</div>
+          <div class="nivel-benefit">R$60–R$80</div>
+        </div>
+        <div class="nivel-card n3 reveal reveal-delay-2">
+          <div class="nivel-num">Nível 3</div>
+          <div class="nivel-icon">📈</div>
+          <div class="nivel-name">Dedicado</div>
+          <div class="nivel-desc">Evolução acadêmica consistente por dois trimestres.</div>
+          <div class="nivel-benefit">R$90–R$110</div>
+        </div>
+        <div class="nivel-card n4 reveal reveal-delay-2">
+          <div class="nivel-num">Nível 4</div>
+          <div class="nivel-icon">🔥</div>
+          <div class="nivel-name">Comprometido</div>
+          <div class="nivel-desc">Alta frequência + notas acima da média. Referência na turma.</div>
+          <div class="nivel-benefit">R$130–R$160</div>
+        </div>
+        <div class="nivel-card n5 reveal reveal-delay-3">
+          <div class="nivel-num">Nível 5</div>
+          <div class="nivel-icon">🌟</div>
+          <div class="nivel-name">Destaque</div>
+          <div class="nivel-desc">Excelência acadêmica sustentada. Liderança positiva.</div>
+          <div class="nivel-benefit">R$170–R$200</div>
+        </div>
+        <div class="nivel-card n6 reveal reveal-delay-3">
+          <div class="nivel-num">Nível 6</div>
+          <div class="nivel-icon">🏅</div>
+          <div class="nivel-name">Elite</div>
+          <div class="nivel-desc">Desempenho excepcional e impacto positivo no ambiente escolar.</div>
+          <div class="nivel-benefit">R$220–R$260</div>
+        </div>
+        <div class="nivel-card n7 reveal reveal-delay-4">
+          <div class="nivel-num">Nível 7</div>
+          <div class="nivel-icon">👑</div>
+          <div class="nivel-name">Missão Cumprida</div>
+          <div class="nivel-desc">Conclusão com excelência. Preparado para o próximo nível da vida.</div>
+          <div class="nivel-benefit">R$280–R$300+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACTO -->
+  <section id="impacto">
+    <div class="section-inner">
+      <div class="reveal">
+        <span class="section-label label-orange">Impacto Esperado</span>
+        <h2 class="section-title">Transformação mensurável</h2>
+        <p class="section-desc">Projeções baseadas em programas similares implementados no Brasil e em economias
+          emergentes com metodologia CCT (Conditional Cash Transfer).</p>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card i1 reveal">
+          <span class="impact-icon">📉</span>
+          <div class="impact-num">-47%</div>
+          <div class="impact-label">Redução projetada na evasão escolar nas escolas participantes</div>
+        </div>
+        <div class="impact-card i2 reveal reveal-delay-1">
+          <span class="impact-icon">📊</span>
+          <div class="impact-num">+32%</div>
+          <div class="impact-label">Aumento médio no desempenho acadêmico dos participantes</div>
+        </div>
+        <div class="impact-card i3 reveal reveal-delay-2">
+          <span class="impact-icon">🌍</span>
+          <div class="impact-num">+68%</div>
+          <div class="impact-label">Aumento na taxa de conclusão do ensino médio</div>
+        </div>
+        <div class="impact-card i4 reveal reveal-delay-3">
+          <span class="impact-icon">💰</span>
+          <div class="impact-num">12×</div>
+          <div class="impact-label">Retorno social estimado por R$1 investido em educação básica</div>
+        </div>
+      </div>
+      <div
+        style="margin-top:3rem;background:var(--g-light);border-radius:var(--radius-lg);padding:2.5rem;border:1px solid var(--g-gray)"
+        class="reveal">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;text-align:center" class="three-grid">
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--g-blue)">500K+</div>
+            <p style="font-size:.85rem;color:var(--g-muted);margin-top:.3rem">jovens elegíveis na primeira fase de
+              expansão</p>
+          </div>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--g-orange)">R$35M
+            </div>
+            <p style="font-size:.85rem;color:var(--g-muted);margin-top:.3rem">custo mensal estimado para 500K alunos no
+              Nível 1</p>
+          </div>
+          <div>
+            <div style="font-family:'Sora',sans-serif;font-size:1.8rem;font-weight:800;color:var(--g-green)">Escalável
+            </div>
+            <p style="font-size:.85rem;color:var(--g-muted);margin-top:.3rem">modelo replicável em todos os estados
+              brasileiros</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta">
+    <div class="cta-bg"></div>
+    <div class="section-inner">
+      <div class="cta-inner">
+        <p class="cta-kicker">Pronto para transformar</p>
+        <h2 class="cta-title reveal">
+          Não é apenas permanência.<br>É <em>transformação.</em>
+        </h2>
+        <p class="cta-desc reveal reveal-delay-1">Nós transformamos notas em renda para que o aluno não precise escolher
+          entre o livro e o trabalho. O Brasil não pode continuar perdendo jovens por falta de um elo entre educação e
+          sobrevivência.</p>
+        <!-- <a href="mailto:contato@missaoaprender.org.br" class="btn-cta-main reveal reveal-delay-2">
+        Quero implementar o Missão Aprender →
+      </a> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Missão Aprender</div>
+        <p style="margin-top:.4rem;font-size:.8rem">Educação que permanece. Futuro que transforma.</p>
+      </div>
+      <div class="footer-ods">
+        <div class="ods-badge-footer">ODS 4</div>
+        <span>Educação de Qualidade · ONU 2030</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:contato@missaoaprender.org.br">0001205629@senaimgaluno.com.br</a>
+        <a href="#">(31) 9 7596-0380</a>
+      </div>
+    </div>
+    <div
+      style="max-width:1200px;margin:1.5rem auto 0;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.07);text-align:center;font-size:.78rem">
+      © 2026 Missão Aprender. Projeto social alinhado à Agenda 2030 da ONU.
+    </div>
+  </footer>
+
+  <style>
+    @media (max-width: 900px) {
+      .two-col-layout {
+        grid-template-columns: 1fr !important;
+      }
+
+      .three-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+    }
+  </style>
+
+  <script>
+    // Nav scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Hamburger menu
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Trigger bars animation when science section visible
+          if (e.target.closest('#ciencia')) {
+            document.querySelectorAll('.mbar-fill').forEach(bar => {
+              bar.style.width = bar.dataset.w;
+            });
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => observer.observe(r));
+
+    // Also trigger bars if already visible
+    const scienceSection = document.getElementById('ciencia');
+    const sciObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          document.querySelectorAll('.mbar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.w;
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    sciObs.observe(scienceSection);
+  </script>
+</body>
+
+</html>
